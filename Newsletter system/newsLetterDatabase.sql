@@ -3,3 +3,5 @@ CREATE TABLE subscribers (
     email VARCHAR(255) NOT NULL,
     subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE subscribers ADD COLUMN last_interaction_date DATE;

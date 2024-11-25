@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <h2>Subscribers List</h2>
+    <ul>
+        {% for email in email_list %}
+            <li>{{ email[0] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Actions</h2>
+    <form action="{{ url_for('admin_send_coupon_emails') }}" method="POST">
+        <button type="submit">Send Coupon Emails</button>
+    </form>
+
+    <form action="{{ url_for('admin_send_we_miss_you_emails') }}" method="POST">
+        <button type="submit">Send "We Miss You" Emails</button>
+    </form>
+
+    <h2>Custom Email</h2>
+    <form action="{{ url_for('admin_send_email') }}" method="POST">
+        <label for="recipients">Select Recipients:</label><br>
+        {% for email in email_list %}
+            <input type="checkbox" name="recipients" value="{{ email[0] }}">{{ email[0] }}<br>
+        {% endfor %}
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject"><br>
+        <label for="body">Body:</label><br>
+        <textarea id="body" name="body"></textarea><br>
+        <button type="submit">Send Custom Email</button>
+    </form>
+</body>
+</html>

@@ -5,4 +5,6 @@
 
 # What is this
 ## This is a newsletter system using python and SQL as a DB
+### The way it works is that upon entering an email it will be stored within the SQL DB
+### And it uses a set schedule for when it will send out the emails using the smtblib library
 ### In python i am taking advantage of the Flask framework for the websites backend.
